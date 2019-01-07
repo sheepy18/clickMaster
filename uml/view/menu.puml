@@ -1,7 +1,41 @@
-@startuml
+@startuml menuOverview
+abstract class Menu{
 
-class Menu{
-    
 }
+
+class MainMenu{
+
+}
+
+class Preferences{
+
+}
+
+abstract class GameScene{
+
+}
+
+class Level{
+
+}
+
+abstract class State{
+    -{static}primary: Stage 
+    -next: State
+}
+
+interface SceneJavafx{
+
+}
+
+State .left-|> SceneJavafx
+
+Menu .up-|> State
+MainMenu -up-|> Menu
+Preferences -up-|> Menu
+
+GameScene .up-|> State
+Level -up-|> GameScene
+
 
 @enduml

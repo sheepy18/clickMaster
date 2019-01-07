@@ -1,0 +1,62 @@
+@startuml overview
+
+class World{
+    -gameObjects: ArrayList<GameObject>
+}
+
+interface GameObject{
+    -name: String
+    -level: int
+}
+
+abstract class Player{
+    -livePoints: int
+    -abilities: Ability[]
+}
+
+class Hero{
+
+}
+
+class Enemy{
+
+}
+
+abstract class Item{
+   -durability: int
+}
+
+class Weapon{
+    -damage: int
+}
+
+class Equipment{
+    -armor: int
+}
+
+interface Ability{
+    
+}
+
+interface Observable{
+    -observers: ArrayList<Observer>
+
+    +subscribe(obs: Observer) : void
+    +update(): void
+}
+
+GameObject -up-|> Observable
+Player "1" -up- "1..5" Ability: has >
+Player .up-|> GameObject
+Item .up-|> GameObject
+Ability -left-|> GameObject
+
+Enemy -up-|> Player
+Hero -up-|> Player
+
+Weapon -up-|> Item
+Equipment -up-|> Item
+
+GameObject"0..*" -left- "1"World: stores <
+
+@enduml
