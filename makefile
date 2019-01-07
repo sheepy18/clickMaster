@@ -4,14 +4,14 @@
 NAME = Main
 OBJ = obj
 COMP = javac
-COMPFLAGS = -g -verbose -d obj/
+COMPFLAGS = -g -verbose -d obj/ -cp src/view
 
 default::$(NAME)
 
 $(OBJ):
 	mkdir $@
-$(OBJ)/$(NAME).class: src/$(NAME).java | $(OBJ)
-	$(COMP) $(COMPFLAGS) $<
+$(OBJ)/$(NAME).class: src/$(NAME).java src/src.view/Menu.java | $(OBJ)
+	$(COMP) $(COMPFLAGS) $^
 $(NAME): $(OBJ)/$(NAME).class | $(OBJ)
 	
 
