@@ -4,15 +4,20 @@
 NAME = Main
 OBJ = obj
 COMP = javac
-COMPFLAGS = -g -verbose -d obj/ -cp src/view
+COMPFLAGS = -g -verbose -d obj/ 
+src = $(wildcard src/*.java)
+view = $(wildcard src/src.view/*.java)
+model = $(wildcard src/src.model/*.java)
 
-default::$(NAME)
+
+default:$(OBJ)/Main.class
+
+all: $(src) $(view)
 
 $(OBJ):
 	mkdir $@
-$(OBJ)/$(NAME).class: src/$(NAME).java src/src.view/Menu.java | $(OBJ)
+$(OBJ)/Main.class: $(src) $(view) $(model) | $(OBJ)
 	$(COMP) $(COMPFLAGS) $^
-$(NAME): $(OBJ)/$(NAME).class | $(OBJ)
 	
 
 clean:
