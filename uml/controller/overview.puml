@@ -1,0 +1,15 @@
+@startuml overview
+
+class Observer{
+
+}
+
+class GameController {
+    world: World
+
+}
+
+
+
+
+@enduml

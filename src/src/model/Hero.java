@@ -1,7 +1,7 @@
 package src.model;
 
 public class Hero extends Player {
-    Hero( String name ){
+    public Hero( String name ){
         super( name );
     }
 }

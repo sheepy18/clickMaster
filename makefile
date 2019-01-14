@@ -8,7 +8,7 @@ COMPFLAGS = -g -verbose -d obj/
 src = $(wildcard src/*.java)
 view = $(wildcard src/src.view/*.java)
 model = $(wildcard src/src.model/*.java)
-srcuml = $(wildcard uml/view/*.puml) $(wildcard uml/model/*.puml)
+srcuml = $(wildcard uml/view/*.puml) $(wildcard uml/model/*.puml) $(wildcard uml/controller/*.puml)
 
 
 default:$(OBJ)/Main.class
